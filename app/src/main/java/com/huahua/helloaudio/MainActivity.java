@@ -184,6 +184,19 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        mp.pause();
+        isPlaying=false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        btnPlay.setImageResource(R.drawable.play_btn_play_selector);
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         mp.stop();
